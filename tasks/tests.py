@@ -227,3 +227,6 @@ class SecurityTests(AuthenticatedTestCase):
         self.assertEqual(self.client.get("/health/").json(), {"status": "ok"})
         self.assertIsNotNone(importlib.import_module("todo.wsgi").application)
         self.assertIsNotNone(importlib.import_module("todo.asgi").application)
+
+    def test_intentional_pipeline_gate(self):
+        self.fail('TP J2 exercice 4 : echec volontaire, deploiement interdit')
