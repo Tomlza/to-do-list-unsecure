@@ -1,0 +1,13 @@
+{% extends 'tasks/base.html' %}
+{% block title %}Connexion{% endblock %}
+{% block content %}
+<main class="center-column">
+  <h1>Connexion</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="btn btn-info" type="submit">Se connecter</button>
+  </form>
+</main>
+{% endblock %}

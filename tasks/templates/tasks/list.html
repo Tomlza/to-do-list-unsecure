@@ -5,20 +5,23 @@
 <div class="center-column">
 	<form method="POST" action="/">
 		{% csrf_token %}
+		{{ form.title.errors }}
 		{{form.title}}
 		<input class="btn btn-info" type="submit" name="Create Task">
 	</form>
 
-	<!-- TODO: {{task.title|safe}} desactive l'echappement XSS : a corriger -->
+	<a href="{% url 'import_tasks' %}">Importer</a>
+	<form method="get" action="{% url 'search' %}"><label>Rechercher <input name="q"></label><button type="submit">Rechercher</button></form>
+	<form method="post" action="{% url 'logout' %}">{% csrf_token %}<button type="submit">Déconnexion</button></form>
 	<div class="todo-list">
 	{% for task in tasks %}
 		<div class="item-row">
 			<a class="btn btn-sm btn-info" href = "{% url 'update_task' task.id %}">Update</a>
 			<a class="btn btn-sm btn-danger" href = "{% url 'delete' task.id %}">Delete</a>
 			{% if task.complete == True %}
-			<strike>{{task.title|safe}}</strike>
+			<del>{{task.title}}</del>
 			{% else %}
-			<span>{{task.title|safe}}</span>
+			<span>{{task.title}}</span>
 			{% endif %}
 
 		</div>

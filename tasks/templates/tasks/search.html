@@ -1,0 +1,8 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<main class="center-column">
+  <h1>Résultats</h1>
+  <ul>{% for task in tasks %}<li>{{ task.title }}</li>{% empty %}<li>Aucun résultat.</li>{% endfor %}</ul>
+  <a href="{% url 'list' %}">Retour aux tâches</a>
+</main>
+{% endblock %}

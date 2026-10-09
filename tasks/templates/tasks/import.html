@@ -1,0 +1,9 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+<main class="center-column">
+  <h1>Importer des tâches</h1>
+  <p>Saisir une liste JSON de titres, par exemple ["Lire", "Tester"].</p>
+  <form method="post">{% csrf_token %}{{ form.as_p }}<button type="submit">Importer</button></form>
+  <a href="{% url 'list' %}">Retour aux tâches</a>
+</main>
+{% endblock %}

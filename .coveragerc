@@ -1,0 +1,8 @@
+[run]
+branch = True
+source = tasks,todo
+relative_files = True
+omit = tasks/tests.py
+
+[report]
+show_missing = True
